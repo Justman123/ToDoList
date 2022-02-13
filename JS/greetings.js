@@ -7,10 +7,10 @@ const USERNAME_KEY = "username";
 
 function onLoginSubmit(event) { // 유저 이름 확인 및 저장
     event.preventDefault();
-    loginForm.classList.add(HIDDEN_CLASSNAME)
+    loginForm.classList.add(HIDDEN_CLASSNAME);
     const typedUsername = loginInput.value; 
     localStorage.setItem(USERNAME_KEY, typedUsername); 
-    paintGreetings(typedUsername)
+    paintGreetings(typedUsername);
 }
 
 function paintGreetings(username) { // greeting 표시
