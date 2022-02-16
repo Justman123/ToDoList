@@ -2,12 +2,22 @@ const toDoForm = document.getElementById("todo-form");
 const toDoInput = toDoForm.querySelector("input");
 const toDoList = document.getElementById("todo-list");
 
+const TODOS_KEY = "todos"
+let toDos = [];
+
+function saveToDos() {
+    // todo 저장
+    localStorage.setItem(TODOS_KEY, JSON.stringify(toDos));
+}
+
 function deleteToDo(event) {
+    // todo 삭제
     const li = event.target.parentElement;
     li.remove();
 }
 
-function paintToDo(newTodo) {
+function paintToDo(newTodo) { 
+    // todo 그리기
     const li = document.createElement("li");
     const span = document.createElement("span");
     span.innerText = newTodo;
@@ -20,11 +30,25 @@ function paintToDo(newTodo) {
 }
 
 
-function handleToDoSumbit (event) {
+function handleToDoSubmit (event) {  
+    // Todo submit 핸들러
     event.preventDefault();
     const newTodo = toDoInput.value
     toDoInput.value = "";
-    paintToDo(newTodo)
+    toDos.push(newTodo);
+    paintToDo(newTodo);
+    saveToDos();
 }
 
-toDoForm.addEventListener("submit", handleToDoSumbit)
+toDoForm.addEventListener("submit", handleToDoSubmit); // 이벤트
+
+function sayHello(item) {
+    console.log("this is the turn of", item);
+}
+const savedToDos = localStorage.getItem(TODOS_KEY);
+
+if(savedToDos !== null) {
+    const parsedToDos = JSON.parse(savedToDos);
+    toDos = parsedToDos
+    parsedToDos.forEach(paintToDo)
+}
