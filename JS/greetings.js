@@ -20,13 +20,13 @@ function paintGreetings(username) { // greeting 표시
 
 loginForm.addEventListener("submit", onLoginSubmit);
 
-const savedUsername = localStorage.getItem(USERNAME_KEY)
+const savedUsername = localStorage.getItem(USERNAME_KEY);
 
 if (savedUsername === null) { // 저장된 유저 이름이 없을 때는 form 표시(greeting 숨김)
     loginForm.classList.remove(HIDDEN_CLASSNAME);
     loginForm.addEventListener("sumbit", onLoginSubmit);
 } else { // 있을 때는 greeting 표시(form 숨김)
-    paintGreetings(savedUsername)
+    paintGreetings(savedUsername);
 }
 
 
