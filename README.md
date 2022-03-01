@@ -5,4 +5,9 @@
 
 강의: https://nomadcoders.co/javascript-for-beginners/lobby
 
-# 기능 및 사용법
+# ToDoList 기능
+- todo 추가, 삭제 기능
+- 로그인(이름)
+- 랜덤 사진 및 명언
+- 시계(현재 시간)
+- 날씨 정보(온도, 날씨)
